@@ -1,0 +1,27 @@
+<div style="text-align: right">
+  <a href="<% request.uri_base %>/faq" target="_new">FAQ</a>
+</div>
+<center>
+  <form method="post" action="<% request.uri_base %>/approve/<% id %>" >
+  <table>
+    <tr><% before %></tr>
+    <tr style="font-size: 10px;">
+      <td>Original (<% section %>)</td>
+      <td>Tradução r1</td>
+    </tr>
+    <tr>
+      <td><textarea name="left" disabled="yes" rows="25" cols="63"><% left %></textarea></td>
+      <td><textarea name="right" rows="25" cols="63"><% right %></textarea></td>
+    </tr>
+    <tr><% after %></tr>
+    <tr>
+      <td></td>
+      <td><div style="float: right;">
+	  <input name="action" type="submit" value="Devolver"/>
+	  <input name="action" type="submit" value="Aprovar"/>
+        </div>
+      </td>
+    </tr>
+  </table>
+      </form>
+</center>

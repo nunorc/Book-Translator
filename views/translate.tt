@@ -1,0 +1,32 @@
+<div style="text-align: right">
+  <a href="<% request.uri_base %>/faq" target="_new">FAQ</a>
+</div>
+<center>
+  <form method="post" action="<% request.uri_base %>/save/<% id %>" >
+  <table>
+    <tr><% before %></tr>
+    <tr style="font-size: 10px;">
+      <td>Original (<% section %>)</td>
+      <td>Tradução</td>
+    </tr>
+    <tr>
+      <td><pre id="pre_left"><% left %></pre></td>
+      <td><textarea id="pre_right" name="right"><% right %></textarea></td>
+    </tr>
+    <tr><% after %></tr>
+    <tr>
+      <td></td>
+      <td><div style="float: right;">
+	  <input name="action" type="submit" value="Devolver"/>
+	  <input name="action" type="submit" value="Limpar"/>
+	  <input name="action" type="submit" value="Guardar"/>
+	  <input name="action" type="submit" value="Terminar"/>
+          <% IF session.admin %>
+   	     <input name="action" type="submit" value="!!! Forçar !!!"/>
+             <% END %>
+          </div>
+      </td>
+    </tr>
+  </table>
+      </form>
+</center>

@@ -1,0 +1,6 @@
+<div>
+  <% msg %>
+</div>
+
+<br/>
+<a href="<% request.uri_base %>/">&lt;&lt; voltar</a>

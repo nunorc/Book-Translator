@@ -1,0 +1,13 @@
+<h1>Perfil do Utilizador</h1>
+<br>
+Nome: <% user.nome %><br>
+<% IF user.email == session.user %>
+E-mail: <% user.email %> <br><br>
+Alterar paralavra-chave
+<form class="main" action="<% request.uri_base %>/user/<% session.name %>" method="post">
+  <label for="pass1">Actual: <input type="password" name="pass1"/></label>
+  <label for="pass2">Nova: <input type="password" name="pass2"/></label>
+  <label for="pass2">Nova (repetir): <input type="password" name="pass3"/></label>
+  <input type="submit" value="Alterar"/>
+</form>
+<% END %>

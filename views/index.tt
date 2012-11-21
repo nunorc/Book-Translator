@@ -1,0 +1,8 @@
+                    
+<h1>Entrar</h1>
+      
+<form class="main" action="<% request.uri_base %>/enter" method="post">
+  <label for="email">Email: <input name="email"/></label>
+  <label for="pass">Palavra chave: <input type="password" name="pass"/></label>
+  <input type="submit" value="Entrar"/>
+</form>

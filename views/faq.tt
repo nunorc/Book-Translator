@@ -1,0 +1,78 @@
+<style type="text/css">
+
+  .g {
+     margin-top: 5px; border-top: dotted 1px #ddd; 
+     padding-top: 5px;
+     padding-bottom: 5px;
+     margin-bottom: 5px;
+  }
+
+  .q { font-weight: bold; }
+  .q:before { content: "P: "; }
+
+  .a { margin-bottom: 5px; }
+  .a:before { content: "R: "}
+</style>
+
+<h3>FAQ</h3>
+
+<div class="g">
+  <div class="q">Qual é o processo de tradução?</div>
+
+  <div class="a">Devem escolher um dos elementos para traduzir que esteja
+    livre, escolhendo a opção "Traduzir" para o elemento correspondente.
+    Depois podem ir traduzindo e granvando as alterações, quando a
+    tradução estiver finalizada escolher a opção "Terminado". Dúvidas
+    na tradução? Ver a pergunta segiunte.</div>
+</div>
+
+<div class="g">
+  <div class="q">O que devo fazer se aparecer alguma coisa esquisita, ou
+    não souber lidar com algum elemento do bloco de tradução?</div>
+
+  <div class="a">Em casos de dúvidas, ou tags ou elementos da estrutura
+    do texto que não estejam a compreender como devem (ou se devem)
+    traduzir, libertem o bloco de tradução e enviem a questão para a
+    mailing-list.</div>
+</div>
+
+<div class="g">
+  <div class="q">Como traduzo a palavra $palavra?</div>
+
+  <div class="a">Para garantir a homogeneidade da tradução definimos as
+    seguintes traduções. Se tem dúvidas sobre a tradução de algum termo,
+    por favor contacte a mailing-list.
+    <dl>
+    <% FOREACH i IN terms.keys %>
+      <dt><% i %></dt><dd>Use o termo <b><% terms.$i %></b>.</dd>
+    <% END %>
+    </dl>
+    Estas palavras devem aparecer realçadas a cor-de-laranja no texto orinigal
+    (lado esquerdo), tentem respeitar as indicações. 
+  </div>
+</div>
+
+<div class="g">
+  <div class="q">O que devo traduzir nos exemplos de código?</div>
+  <div class="a">Tudo o que não sejam comandos reservados do Perl. Não esquecer de usar acentuação adequada..</div>
+</div>
+
+<div class="g">
+  <div class="q">Os '\n' interessam na caixa de tradução?</div>
+  <div class="a">Só no ambiente Verbatim (código), no resto não.</div>
+</div>
+
+<div class="g">
+  <div class="q">Devo traduzir o que está aparece entre \L{....} nas strings?</div>
+  <div class="a">Não, que corresponde ao nome oficial de um caracter unicode.</div>
+</div>
+
+<div class="g">  
+  <div class="q">Devo usar o Acordo Ortográfico?</div>
+  <div class="a">Por muito que nos custe admitir, sim. Há muita gente contra, incluindo muito de nós, mas parece-nos improvável que o AO seja anulado.</div>
+</div>
+
+<div class="g">
+  <div class="q">Alguma dúvida não contemplada?</div>
+  <div class="a">Contacte-nos ma mailing-list!</div>
+</div>

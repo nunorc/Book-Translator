@@ -1,0 +1,57 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use Email::Sender::Simple 'sendmail';
+use Email::Simple;
+use Email::Simple::Creator;
+use Digest::MD5 'md5_hex';
+use DBI;
+
+my $username = shift;
+my $email = shift;
+unless ($username and $email) {
+	die "translator-add-user <username> <email>"; 
+}
+my $pass = generate_password(8);
+my $md5 = md5_hex($pass);
+my $admin = shift or 0;
+
+my $dbfile = '/home/ambs/Book-Translator/DB/book.sqlite';
+my $dbh = DBI->connect("dbi:SQLite:dbname=$dbfile");
+
+my $sth = $dbh->prepare('INSERT INTO user VALUES(?,?,?,?)');
+$sth->execute($username,$email,$md5,$admin);
+
+my $message = Email::Simple->create(
+		header => [
+			To => $email,
+			From => 'no-reply@perl.pt',
+			Subject => 'O seu registo em http://perl.pt/translator',
+		],
+		body => <<"EOEMAIL");
+Olá, $username.
+
+As suas credenciais de acesso em http://perl.pt/translator são:
+
+Utilizador: $email
+Palavra-schave: $pass
+
+Obrigado
+APPP
+EOEMAIL
+sendmail($message);
+
+$dbh->disconnect;
+
+print "Done, e-mail sent to $email\n";
+
+sub generate_password {
+	my $size = shift;
+
+	my @a = ('a'..'z', 'A'..'Z', 0..9);
+	my $password = join '', map $a[rand(@a)], 0..$size;
+
+	return $password;
+}
